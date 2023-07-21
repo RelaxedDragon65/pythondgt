@@ -1,6 +1,9 @@
 # Python program to create a simple GUI
 # Simple Quiz using Tkinter
 
+
+import os
+
 #import everything from tkinter
 from tkinter import *
 
@@ -103,6 +106,14 @@ class Quiz:
 			self.display_question()
 			self.display_options()
 
+	def restart_btn():
+		Tk.destroy()
+		os.startfile("caine.py")
+
+
+
+
+
 
 	# This method shows the two buttons on the screen.
 	# The first one is the next_button which moves to next question
@@ -111,7 +122,7 @@ class Quiz:
 	# mentions where to place the button on the screen. The second
 	# button is the exit button which is used to close the GUI without
 	# completing the quiz.
-	def buttons(self):
+	def buttons(self,):
 		
 		# The first button is the Next button to move to the
 		# next Question
@@ -124,9 +135,13 @@ class Quiz:
 		# This is the second button which is used to Quit the GUI
 		quit_button = Button(gui, text="Quit", command=gui.destroy,
 		width=5,bg="black", fg="white",font=("ariel",16," bold"))
+
+		restart_button = Button(gui, text="Restart", command=self.restart_btn,
+		width=5,bg="black", fg="white",font=("ariel",16," bold"))
 		
 		# placing the Quit button on the screen
 		quit_button.place(x=700,y=50)
+		restart_button.place(x=700, y=100)
 
 
 	# This method deselect the radio button on the screen
@@ -162,7 +177,7 @@ class Quiz:
 		
 		# The title to be shown
 		title = Label(gui, text="GeeksforGeeks QUIZ",
-		width=50, bg="green",fg="white", font=("ariel", 20, "bold"))
+		width=50, bg="black",fg="white", font=("ariel", 20, "bold"))
 		
 		# place of the title
 		title.place(x=0, y=2)
